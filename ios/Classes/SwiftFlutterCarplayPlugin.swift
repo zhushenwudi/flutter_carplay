@@ -229,6 +229,15 @@ public class SwiftFlutterCarplayPlugin: NSObject, FlutterPlugin {
       self.objcPresentTemplate = nil
       result(true)
       break
+    case FCPChannelTypes.updateTabBarTemplates:
+      guard let args = call.arguments as? [String : Any] else {
+        result(false)
+        return
+      }
+      let newTemplates = args["newTemplates"] as! Array<[String : Any]>
+      (SwiftFlutterCarplayPlugin.objcRootTemplate as! FCPTabBarTemplate).updateTemplates(newTemplates: newTemplates);   
+      result(true)
+      break
     default:
       result(false)
       break
