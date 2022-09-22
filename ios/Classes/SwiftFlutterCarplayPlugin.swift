@@ -234,8 +234,13 @@ public class SwiftFlutterCarplayPlugin: NSObject, FlutterPlugin {
         result(false)
         return
       }
+      guard let objcRootTemplate = SwiftFlutterCarplayPlugin.objcRootTemplate as? FCPTabBarTemplate else {
+        result(false)
+        return
+      }
+      SwiftFlutterCarplayPlugin.templateStack = []
       let newTemplates = args["newTemplates"] as! Array<[String : Any]>
-      (SwiftFlutterCarplayPlugin.objcRootTemplate as! FCPTabBarTemplate).updateTemplates(newTemplates: newTemplates);   
+      objcRootTemplate.updateTemplates(newTemplates: newTemplates);   
       result(true)
       break
     default:
