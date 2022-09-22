@@ -280,6 +280,9 @@ class FlutterCarplay {
         "newTemplates": newTemplates.map((e) => e.toJson()).toList(),
       },
     );
+    if (isCompleted) {
+      (FlutterCarPlayController.currentRootTemplate as CPTabBarTemplate).updateTemplates(newTemplates: newTemplates);
+    }
     return isCompleted;
   }
 }
