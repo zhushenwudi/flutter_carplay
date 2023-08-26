@@ -6,7 +6,7 @@ import 'package:uuid/uuid.dart';
 /// A selectable list item object that appears in a list template.
 class CPListItem {
   /// Unique id of the object.
-  final String _elementId = const Uuid().v4();
+  String elementId;
 
   /// Text displayed in the list item cell.
   String text;
@@ -40,6 +40,7 @@ class CPListItem {
   /// A list item can display primary text, secondary text, now playing indicators as playback progress,
   /// an accessory image and a trailing image.
   CPListItem({
+    required this.elementId,
     required this.text,
     this.detailText,
     this.onPress,
@@ -51,7 +52,7 @@ class CPListItem {
   });
 
   Map<String, dynamic> toJson() => {
-        "_elementId": _elementId,
+        "_elementId": elementId,
         "text": text,
         "detailText": detailText,
         "onPress": onPress != null ? true : false,
@@ -121,6 +122,6 @@ class CPListItem {
   }
 
   String get uniqueId {
-    return _elementId;
+    return elementId;
   }
 }
