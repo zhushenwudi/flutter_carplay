@@ -91,6 +91,12 @@ class CPListItem {
     FlutterCarPlayController.updateCPListItem(this);
   }
 
+  void updateTextAndImage(String text, String image) {
+    this.text = text;
+    this.image = image;
+    FlutterCarPlayController.updateCPListItem(this);
+  }
+
   /// Setter for playbackProgress
   /// When the given value is not between 0.0 and 1.0, throws [RangeError]
   void setPlaybackProgress(double playbackProgress) {
