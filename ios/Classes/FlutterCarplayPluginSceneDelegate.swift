@@ -55,13 +55,26 @@ class FlutterCarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelega
     })
   }
   
+  // func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene,
+  //                               didConnect interfaceController: CPInterfaceController) {
+  //   FlutterCarPlaySceneDelegate.interfaceController = interfaceController
+    
+  //   SwiftFlutterCarplayPlugin.onCarplayConnectionChange(status: FCPConnectionTypes.connected)
+  //   let rootTemplate = SwiftFlutterCarplayPlugin.rootTemplate
+
+  //   if rootTemplate != nil {
+  //     FlutterCarPlaySceneDelegate.interfaceController?.setRootTemplate(rootTemplate!, animated: SwiftFlutterCarplayPlugin.animated, completion: nil)
+  //   }
+  // }
+
+  // when carplay is boot first, need reset root template when app start
   func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene,
                                 didConnect interfaceController: CPInterfaceController) {
     FlutterCarPlaySceneDelegate.interfaceController = interfaceController
     
     SwiftFlutterCarplayPlugin.onCarplayConnectionChange(status: FCPConnectionTypes.connected)
     let rootTemplate = SwiftFlutterCarplayPlugin.rootTemplate
-
+    
     if rootTemplate != nil {
       FlutterCarPlaySceneDelegate.interfaceController?.setRootTemplate(rootTemplate!, animated: SwiftFlutterCarplayPlugin.animated, completion: nil)
     }
